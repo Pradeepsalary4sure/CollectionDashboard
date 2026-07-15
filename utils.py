@@ -55,10 +55,10 @@ def load_data(csv_url):
     # -----------------------------
 
     df["Repay Date"] = pd.to_datetime(
-        df["Repay Date"],
-        dayfirst=True,
-        errors="coerce"
-    )
+    df["Repay Date"],
+    format="%d-%b-%y",
+    errors="coerce"
+)
 
     # Remove time portion
     df["Repay Date"] = df["Repay Date"].dt.normalize()
@@ -149,4 +149,4 @@ def filter_dataframe(
         (temp["Repay Date"] <= to_date)
     ]
 
-    return temp.reset_index(drop=True)      
+    return temp.reset_index(drop=True)  
