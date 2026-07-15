@@ -1,16 +1,16 @@
 import pandas as pd
 import streamlit as st
 
-# -------------------------------
+# ---------------------------------
 # LOAD DATA
-# -------------------------------
+# ---------------------------------
 
 @st.cache_data(ttl=300)
 def load_data(csv_url):
 
     df = pd.read_csv(csv_url)
 
-    # Rename columns by index
+    # Rename Columns
     cols = list(df.columns)
 
     rename_map = {
@@ -25,12 +25,18 @@ def load_data(csv_url):
 
     df = df.rename(columns=rename_map)
 
-    # Numeric conversion
-    for col in [
+    # -----------------------------
+    # Numeric Columns
+    # -----------------------------
+
+    numeric_cols = [
         "Loan Amount",
         "Loan Repay Amount",
         "Total Received"
-    ]:
+    ]
+
+    for col in numeric_cols:
+
         df[col] = (
             df[col]
             .astype(str)
@@ -44,13 +50,23 @@ def load_data(csv_url):
             errors="coerce"
         ).fillna(0)
 
-    # Date conversion
+    # -----------------------------
+    # Date Column
+    # -----------------------------
+
     df["Repay Date"] = pd.to_datetime(
         df["Repay Date"],
+        dayfirst=True,
         errors="coerce"
     )
 
-    # Text cleanup
+    # Remove time portion
+    df["Repay Date"] = df["Repay Date"].dt.normalize()
+
+    # -----------------------------
+    # Text Cleanup
+    # -----------------------------
+
     df["Repay Month"] = (
         df["Repay Month"]
         .fillna("")
@@ -72,17 +88,19 @@ def load_data(csv_url):
         .str.strip()
     )
 
-    # Pending Amount
+    # -----------------------------
+    # Calculated Columns
+    # -----------------------------
+
     df["Pending Amount"] = (
-        df["Loan Repay Amount"] -
-        df["Total Received"]
+        df["Loan Repay Amount"]
+        - df["Total Received"]
     )
 
-    # Collection %
     df["Collection %"] = (
         (
-            df["Total Received"] /
-            df["Loan Repay Amount"]
+            df["Total Received"]
+            / df["Loan Repay Amount"]
         )
         .replace([float("inf")], 0)
         .fillna(0)
@@ -92,9 +110,9 @@ def load_data(csv_url):
     return df
 
 
-# -------------------------------
+# ---------------------------------
 # FILTER DATA
-# -------------------------------
+# ---------------------------------
 
 def filter_dataframe(
     df,
@@ -107,24 +125,28 @@ def filter_dataframe(
 
     temp = df.copy()
 
+    # Convert both sides to date only
+    temp["Repay Date"] = pd.to_datetime(temp["Repay Date"]).dt.date
+
+    from_date = pd.to_datetime(from_date).date()
+    to_date = pd.to_datetime(to_date).date()
+
+    # Month
     if month != "All":
-        temp = temp[
-            temp["Repay Month"] == month
-        ]
+        temp = temp[temp["Repay Month"].str.strip() == month]
 
+    # Executive
     if executive != "All":
-        temp = temp[
-            temp["Executive Name"] == executive
-        ]
+        temp = temp[temp["Executive Name"] == executive]
 
+    # Status
     if status != "All":
-        temp = temp[
-            temp["Current Status"] == status
-        ]
+        temp = temp[temp["Current Status"] == status]
 
+    # Date
     temp = temp[
-        (temp["Repay Date"] >= pd.to_datetime(from_date)) &
-        (temp["Repay Date"] <= pd.to_datetime(to_date))
+        (temp["Repay Date"] >= from_date) &
+        (temp["Repay Date"] <= to_date)
     ]
 
-    return temp.reset_index(drop=True)
+    return temp.reset_index(drop=True)      
