@@ -1664,3 +1664,21 @@ h1:hover{
     display:block;
 
 }
+
+
+/* Hide Streamlit Header */
+header[data-testid="stHeader"]{
+    display:none !important;
+}
+
+/* Remove top space */
+.block-container{
+    padding-top:0rem !important;
+}
+
+/* Full width app */
+.stApp{
+    margin-top:0 !important;
+}
+
+
