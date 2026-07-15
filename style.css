@@ -1,0 +1,1681 @@
+/* =====================================================
+   COLLECTION EXECUTIVE DASHBOARD
+   PREMIUM FINTECH LIQUID GLASS UI
+   UPDATED VERSION WITH PROPER KPI CARDS
+===================================================== */
+
+
+/* ===============================
+   GOOGLE FONT
+================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
+
+
+/* ===============================
+   GLOBAL
+================================ */
+
+*{
+    font-family:'Poppins',sans-serif;
+    box-sizing:border-box;
+}
+
+
+/* ===============================
+   STREAMLIT APP BACKGROUND
+================================ */
+
+
+.stApp{
+
+    background:
+    
+    linear-gradient(
+    135deg,
+    #052e1b,
+    #064e3b,
+    #022c22
+    );
+    
+    color:white;
+
+}
+
+
+
+
+/* ===============================
+   MAIN CONTAINER
+================================ */
+
+
+.block-container{
+
+    padding-top:2rem;
+    padding-left:3rem;
+    padding-right:3rem;
+
+}
+
+
+
+/* ===============================
+   SIDEBAR
+================================ */
+
+
+section[data-testid="stSidebar"]{
+
+    background:
+
+    linear-gradient(
+        180deg,
+        #04150d,
+        #082519
+    );
+
+    border-right:
+
+    1px solid rgba(34,197,94,.25);
+
+}
+
+
+
+
+/* ===============================
+   HEADINGS
+================================ */
+section[data-testid="stSidebar"] h1,
+section[data-testid="stSidebar"] h2,
+section[data-testid="stSidebar"] h3{
+
+    background: linear-gradient(
+        90deg,
+        #FFF8DC,
+        #FFD700,
+        #F59E0B
+    );
+
+    background-clip: text;          /* Standard */
+    -webkit-background-clip: text;  /* Chrome/Safari */
+
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+
+}
+
+
+/* ===============================
+   DIVIDER
+================================ */
+
+
+hr{
+
+    border:none;
+
+    height:1px;
+
+    background:
+
+    linear-gradient(
+        90deg,
+        transparent,
+        rgba(34,197,94,.5),
+        transparent
+    );
+
+}
+
+
+
+
+/* ===============================
+   PLOTLY CHART BOX
+================================ */
+
+
+.js-plotly-plot{
+
+
+    background:
+
+    rgba(255,255,255,.06);
+
+
+    border-radius:25px;
+
+
+    padding:15px;
+
+
+    backdrop-filter:
+
+    blur(15px);
+
+
+    border:
+
+    1px solid rgba(34,197,94,.15);
+
+
+}
+
+
+
+/* ===============================
+   TABLE DESIGN
+================================ */
+
+
+[data-testid="stDataFrame"]{
+
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    box-shadow:
+
+    0 15px 40px rgba(0,0,0,.3);
+
+}
+
+
+
+/* ===============================
+   BUTTON
+================================ */
+
+
+.stButton>button{
+
+
+    background:
+
+    linear-gradient(
+        135deg,
+        #22c55e,
+        #16a34a
+    );
+
+
+    color:white;
+
+
+    border:none;
+
+
+    border-radius:14px;
+
+
+    padding:
+
+    12px 28px;
+
+
+    font-weight:700;
+
+
+    transition:.3s;
+
+
+
+}
+
+
+
+.stButton>button:hover{
+
+
+    transform:
+
+    translateY(-3px)
+    scale(1.03);
+
+
+
+    box-shadow:
+
+    0 10px 25px rgba(34,197,94,.35);
+
+
+}
+
+
+
+/* ===============================
+   SELECT BOX
+================================ */
+
+
+.stSelectbox div[data-baseweb="select"]{
+
+
+    border-radius:14px;
+
+
+}
+
+
+
+/* ===============================
+   DATE INPUT
+================================ */
+
+
+.stDateInput input{
+
+
+    border-radius:14px;
+
+}
+
+
+
+/* ===============================
+   SCROLL BAR
+================================ */
+
+
+::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+
+::-webkit-scrollbar-track{
+
+    background:#06150d;
+
+}
+
+
+::-webkit-scrollbar-thumb{
+
+
+    background:#22c55e;
+
+    border-radius:20px;
+
+}
+
+
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#4ade80;
+
+}
+
+
+/* =====================================================
+   MONTHLY COLLECTION TREND - LARGE PREMIUM CHART
+===================================================== */
+
+
+.js-plotly-plot{
+
+    min-height:520px !important;
+
+    height:520px !important;
+
+    width:100% !important;
+
+    border-radius:28px !important;
+
+
+    background:
+
+    linear-gradient(
+        135deg,
+        rgba(15,23,42,.95),
+        rgba(6,78,59,.35)
+    ) !important;
+
+
+    border:
+
+    1px solid rgba(74,222,128,.35) !important;
+
+
+    box-shadow:
+
+    0 25px 70px rgba(0,0,0,.45);
+
+
+}
+
+
+/* Chart title */
+
+.js-plotly-plot .gtitle{
+
+    font-size:24px !important;
+
+    font-weight:900 !important;
+
+}
+
+
+
+/* =====================================================
+   EXECUTIVE SUMMARY TABLE BIGGER
+===================================================== */
+
+
+[data-testid="stDataFrame"]{
+
+    width:100% !important;
+
+    min-height:600px !important;
+
+    border-radius:25px !important;
+
+
+    background:
+
+    rgba(15,23,42,.85) !important;
+
+
+    border:
+
+    1px solid rgba(34,197,94,.35);
+
+
+}
+
+
+/* Table text size */
+
+[data-testid="stDataFrame"] div{
+
+
+    font-size:15px !important;
+
+}
+
+
+/* Table header */
+
+[data-testid="stDataFrame"] th{
+
+
+    font-size:16px !important;
+
+    font-weight:900 !important;
+
+
+    background:
+
+    linear-gradient(
+        90deg,
+        #064e3b,
+        #065f46
+    ) !important;
+
+
+    color:#ffffff !important;
+
+
+}
+
+
+
+/* Table rows */
+
+
+[data-testid="stDataFrame"] tr:hover{
+
+
+    background:
+
+    rgba(34,197,94,.12) !important;
+
+
+}
+
+
+/* =====================================================
+   EXECUTIVE SUMMARY HEADING
+===================================================== */
+
+
+h2{
+
+    font-size:34px !important;
+
+    margin-top:35px !important;
+
+}
+
+
+
+/* =====================================================
+   CHART LINE COLOR SUPPORT
+===================================================== */
+
+
+.js-plotly-plot .scatterlayer .trace path{
+
+
+    stroke-width:4px !important;
+
+
+}
+
+/* =====================================================
+   TOP EXECUTIVE PERFORMANCE PODIUM
+   PREMIUM COLLECTION LEADERBOARD
+===================================================== */
+
+
+/* ===============================
+   SECTION TITLE
+================================ */
+
+
+.section-title{
+
+    font-size:34px;
+
+    font-weight:900;
+
+    margin:30px 0;
+
+
+    background: linear-gradient(
+    90deg,
+    #FFF8DC,
+    #FFD700,
+    #F59E0B
+);
+
+background-clip: text;          /* Standard */
+-webkit-background-clip: text;  /* Chrome/Safari */
+
+color: transparent;
+-webkit-text-fill-color: transparent;
+
+    letter-spacing:.5px;
+
+}
+
+
+
+/* ===============================
+   MAIN PERFORMANCE CARD
+================================ */
+
+
+/* .performance-card{
+
+
+    min-height:390px;
+
+
+    padding:30px;
+
+
+    border-radius:28px;
+
+
+    text-align:center;
+
+
+    position:relative;
+
+
+    overflow:hidden;
+
+
+    backdrop-filter:blur(20px);
+
+
+
+    transition:
+
+    .45s cubic-bezier(
+        .34,
+        1.56,
+        .64,
+        1
+    );
+
+
+
+    animation:
+
+    cardEntry .8s ease;
+
+
+
+    border:
+
+    1px solid rgba(255,255,255,.15);
+
+
+
+    box-shadow:
+
+    0 25px 70px rgba(0,0,0,.35);
+
+} */
+
+.performance-card{
+
+    min-height:450px;
+    max-height:450px;
+
+    padding:20px 18px;
+
+    border-radius:28px;
+
+    text-align:center;
+
+    position:relative;
+
+    overflow:hidden;
+
+    backdrop-filter:blur(20px);
+
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;   /* space-between mat use karo */
+    align-items:center;
+    gap:10px;                     /* content ka gap */
+
+    transition:.45s cubic-bezier(.34,1.56,.64,1);
+
+    animation:cardEntry .8s ease;
+
+    border:1px solid rgba(255,255,255,.15);
+
+    box-shadow:0 25px 70px rgba(0,0,0,.35);
+
+}
+
+.performance-card:hover{
+
+    transform:
+
+    translateY(-18px)
+    scale(1.04);
+}
+.crown-emoji,
+.medal-emoji{
+    margin:0;
+    line-height:1;
+}
+
+.position-badge{
+    margin:0;
+    padding:4px 10px;
+}
+
+.exec-name,
+.exec-name-gold{
+    margin:6px 0;
+    line-height:1.2;
+}
+
+.amount-box{
+    margin:6px 0;
+    padding:8px;
+}
+
+.stats-row{
+    margin-top:8px;
+    padding:8px;
+}
+
+
+
+
+
+/* ===============================
+   CARD ANIMATION
+================================ */
+
+
+@keyframes cardEntry{
+
+
+    from{
+
+        opacity:0;
+
+        transform:
+
+        translateY(60px);
+
+    }
+
+
+    to{
+
+        opacity:1;
+
+        transform:
+
+        translateY(0);
+
+    }
+
+}
+
+
+
+
+
+/* ===============================
+   CROWN
+================================ */
+
+
+.crown-emoji{
+
+
+    position:absolute;
+
+
+    top:-25px;
+
+
+    left:50%;
+
+
+    transform:translateX(-50%);
+
+
+    font-size:55px;
+
+
+    animation:
+
+    crownFloat 3s infinite;
+
+
+
+}
+
+
+
+@keyframes crownFloat{
+
+
+    0%,
+    100%{
+
+
+        transform:
+
+        translateX(-50%)
+        translateY(0);
+
+    }
+
+
+    50%{
+
+
+        transform:
+
+        translateX(-50%)
+        translateY(-12px);
+
+    }
+
+}
+
+/* Hide Streamlit Header */
+header[data-testid="stHeader"]{
+    display:none !important;
+}
+
+/* Remove top space */
+.block-container{
+    padding-top:0rem !important;
+}
+
+/* Full width app */
+.stApp{
+    margin-top:0 !important;
+}
+
+
+
+
+
+/* ===============================
+   MEDAL
+================================ */
+
+
+.medal-emoji{
+
+
+    font-size:65px;
+
+
+    margin-top:15px;
+
+
+    animation:
+
+    medalMove 2s infinite;
+
+}
+
+
+
+@keyframes medalMove{
+
+
+    0%,
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+
+    50%{
+
+        transform:
+
+        translateY(-10px);
+
+    }
+
+}
+
+
+
+
+/* ===============================
+   RANK BADGE
+================================ */
+
+
+.position-badge{
+
+
+    display:inline-block;
+
+
+    padding:
+
+    8px 28px;
+
+
+    border-radius:50px;
+
+
+    margin:15px 0;
+
+
+    font-size:13px;
+
+
+    font-weight:900;
+
+
+    letter-spacing:2px;
+
+
+    text-transform:uppercase;
+
+
+    background:
+
+    rgba(0,0,0,.25);
+
+
+
+    border:
+
+    1px solid rgba(255,255,255,.25);
+
+}
+
+
+
+
+/* ===============================
+   EXECUTIVE NAME
+================================ */
+
+
+.exec-name{
+
+    font-size:38px !important;
+
+    font-weight:900;
+
+    margin:25px 0;
+
+    color:white;
+
+    letter-spacing:1px;
+
+    text-transform:capitalize;
+
+}
+
+
+
+
+.exec-name-gold{
+
+
+    font-size:32px;
+
+
+    font-weight:900;
+
+
+    margin:20px 0;
+
+
+    color:#111;
+
+
+}
+
+
+
+
+
+/* ===============================
+   COLLECTION AMOUNT
+================================ */
+
+
+.amount-box{
+
+
+    font-size:32px;
+
+
+    font-weight:900;
+
+
+    padding:15px;
+
+
+    margin:20px 0;
+
+
+    border-radius:20px;
+
+
+    background:
+
+
+    linear-gradient(
+        135deg,
+        #22c55e,
+        #86efac
+    );
+
+
+
+    color:#052e16;
+
+
+
+    box-shadow:
+
+    0 15px 35px rgba(34,197,94,.35);
+
+
+
+    animation:
+
+    amountGlow 2.5s infinite;
+
+}
+
+
+
+
+@keyframes amountGlow{
+
+
+    0%,
+    100%{
+
+        box-shadow:
+
+        0 15px 35px rgba(34,197,94,.35);
+
+    }
+
+
+    50%{
+
+        box-shadow:
+
+        0 20px 50px rgba(34,197,94,.65);
+
+    }
+
+
+}
+
+
+
+
+
+/* ===============================
+   STATS ROW
+================================ */
+
+.stats-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:10px;
+
+    margin-top:8px;
+
+    padding:10px 12px;
+
+    border-radius:14px;
+
+    background:rgba(255,255,255,.10);
+
+}
+
+.stat-item{
+
+    flex:1;
+
+    text-align:center;
+
+}
+
+.stat-label{
+
+    font-size:11px;
+
+    font-weight:600;
+
+    margin-bottom:4px;
+
+    opacity:.85;
+
+}
+
+.stat-value{
+
+    font-size:18px;
+
+    font-weight:900;
+
+    line-height:1.2;
+
+}
+
+.stat-divider{
+
+    width:1px;
+
+    height:28px;
+
+    background:rgba(255,255,255,.25);
+
+}
+
+
+
+
+/* =====================================================
+   GOLD WINNER
+===================================================== */
+
+
+.gold-card{
+
+
+    background:
+
+
+    linear-gradient(
+        135deg,
+        #fde047,
+        #f59e0b,
+        #facc15
+    );
+
+
+
+    color:#111;
+
+
+    border:
+
+    3px solid #fff;
+
+
+    box-shadow:
+
+
+    0 30px 90px rgba(250,204,21,.45);
+
+
+
+}
+
+
+
+
+.gold-card:hover{
+
+
+    box-shadow:
+
+
+    0 40px 100px rgba(250,204,21,.65);
+
+
+}
+
+
+
+
+/* =====================================================
+   SILVER WINNER
+===================================================== */
+
+
+.silver-card{
+
+
+    background:
+
+
+    linear-gradient(
+        135deg,
+        #f8fafc,
+        #cbd5e1,
+        #94a3b8
+    );
+
+
+    color:#111;
+
+
+    border:
+
+    3px solid white;
+
+
+
+    box-shadow:
+
+
+    0 25px 70px rgba(255,255,255,.25);
+
+
+}
+
+
+
+
+/* =====================================================
+   BRONZE WINNER
+===================================================== */
+
+
+.bronze-card{
+
+
+    background:
+
+
+    linear-gradient(
+        135deg,
+        #d97706,
+        #92400e,
+        #f59e0b
+    );
+
+
+    color:white;
+
+
+    border:
+
+    3px solid #fbbf24;
+
+
+
+    box-shadow:
+
+
+    0 25px 70px rgba(217,119,6,.45);
+
+
+}
+
+
+
+
+
+/* ===============================
+   RESPONSIVE
+================================ */
+
+
+@media(max-width:768px){
+
+
+.performance-card{
+
+    min-height:320px;
+
+    padding:20px;
+
+}
+
+
+.exec-name{
+
+    font-size:22px;
+
+}
+
+
+.amount-box{
+
+    font-size:25px;
+
+}
+
+
+.section-title{
+
+    font-size:26px;
+
+}
+
+}
+
+/* =====================================================
+   PREMIUM KPI CARDS - LIQUID GLASS
+===================================================== */
+
+.kpi-card-new{
+
+    background: linear-gradient(135deg, 
+        rgba(34, 197, 94, 0.15) 0%,
+        rgba(15, 23, 42, 0.8) 100%);
+    
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: 20px;
+    border: 1px solid rgba(74, 222, 128, 0.3);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    text-align: center;
+    min-height: 140px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+.kpi-card-new:hover{
+
+    transform: translateY(-8px);
+    border-color: #22c55e;
+    box-shadow: 0 25px 60px rgba(34, 197, 94, 0.25);
+
+}
+
+.kpi-icon{
+
+    font-size: 28px;
+    margin-bottom: 8px;
+
+}
+
+.kpi-title-new{
+
+    color: #cbd5e1;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+
+}
+
+.kpi-value-new{
+
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: 900;
+    letter-spacing: -0.5px;
+
+}
+
+/* =====================================================
+   PREMIUM LEADERBOARD TABLE
+===================================================== */
+
+.leaderboard-table{
+
+    width:100%;
+    height:550px;
+    overflow-y:auto;
+    overflow-x:auto;
+
+    margin-top:15px;
+
+    border-radius:22px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #0f172a,
+        #111827,
+        #0b1220
+    );
+
+    border:1px solid rgba(74,222,128,.15);
+
+    box-shadow:
+    0 20px 60px rgba(0,0,0,.45);
+
+}
+
+
+/* TABLE */
+
+.leaderboard-table table{
+
+    width:100%;
+    border-collapse:collapse;
+    min-width:1200px;
+
+}
+
+
+/* HEADER */
+
+.leaderboard-table thead{
+
+    position:sticky;
+    top:0;
+    z-index:100;
+
+    background:
+    linear-gradient(
+        90deg,
+        #16a34a,
+        #22c55e,
+        #4ade80
+    );
+
+}
+
+
+.leaderboard-table th{
+
+    padding:18px;
+
+    color:white;
+
+    font-size:15px;
+
+    font-weight:800;
+
+    text-transform:uppercase;
+
+    letter-spacing:.5px;
+
+}
+
+
+/* BODY */
+
+.leaderboard-table td{
+
+    padding:16px;
+
+    text-align:center;
+
+    color:#f8fafc;
+
+    font-size:15px;
+
+    border-bottom:1px solid rgba(255,255,255,.05);
+
+}
+
+
+/* ROWS */
+
+.leaderboard-table tbody tr{
+
+    transition:.35s;
+
+}
+
+
+.leaderboard-table tbody tr:nth-child(even){
+
+    background:rgba(255,255,255,.025);
+
+}
+
+
+.leaderboard-table tbody tr:hover{
+
+    background:rgba(34,197,94,.12);
+
+    transform:scale(1.005);
+
+}
+
+
+/* TOP 3 */
+
+.leaderboard-table tbody tr:nth-child(1){
+
+    background:
+    linear-gradient(
+        90deg,
+        rgba(250,204,21,.25),
+        transparent
+    );
+
+}
+
+
+.leaderboard-table tbody tr:nth-child(2){
+
+    background:
+    linear-gradient(
+        90deg,
+        rgba(203,213,225,.22),
+        transparent
+    );
+
+}
+
+
+.leaderboard-table tbody tr:nth-child(3){
+
+    background:
+    linear-gradient(
+        90deg,
+        rgba(217,119,6,.20),
+        transparent
+    );
+
+}
+
+
+/* EXECUTIVE */
+
+.name{
+
+    text-align:left !important;
+
+    font-size:16px;
+
+    font-weight:700;
+
+    padding-left:24px !important;
+
+}
+
+
+/* RANK */
+
+.rank{
+
+    font-size:18px;
+
+    font-weight:900;
+
+}
+
+
+/* SCROLLBAR */
+
+.leaderboard-table::-webkit-scrollbar{
+
+    width:8px;
+    height:8px;
+
+}
+
+.leaderboard-table::-webkit-scrollbar-track{
+
+    background:#111827;
+
+}
+
+.leaderboard-table::-webkit-scrollbar-thumb{
+
+    background:#22c55e;
+
+    border-radius:20px;
+
+}
+
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+    .leaderboard-table{
+
+        height:450px;
+
+    }
+
+    .leaderboard-table th,
+    .leaderboard-table td{
+
+        font-size:13px;
+
+        padding:12px;
+
+    }
+
+}
+
+@media (max-width: 1200px) {
+
+    .kpi-container {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    }
+    
+    .kpi-value-new {
+        font-size: 20px;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .kpi-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .kpi-card-new {
+        padding: 15px;
+    }
+
+}
+
+.performance-card{
+
+    min-height:510px;
+    
+
+    padding:18px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:flex-start;
+
+    gap:8px;
+
+    overflow:visible;
+}
+
+.top-performer-header{
+
+    width:100%;
+    max-width:500px;
+
+    margin:20px auto 35px auto;
+
+    padding:16px 24px;
+
+    text-align:center;
+
+    font-size:34px;
+    font-weight:900;
+
+    color:#ffffff;
+
+    background:linear-gradient(
+        135deg,
+        rgba(34,197,94,.25),
+        rgba(6,78,59,.65)
+    );
+
+    border:2px solid rgba(74,222,128,.35);
+
+    border-radius:20px;
+
+    backdrop-filter:blur(20px);
+
+    box-shadow:0 15px 40px rgba(0,0,0,.35);
+
+    letter-spacing:.5px;
+}
+
+/* ===============================
+   PROGRESS BAR
+=============================== */
+/* ===========================
+   PREMIUM GOLD ANIMATION
+=========================== */
+
+h1{
+
+    font-size:42px !important;
+    font-weight:900 !important;
+    letter-spacing:1px;
+
+    background:linear-gradient(
+        90deg,
+        #7A4A00 0%,
+        #C58A00 15%,
+        #FFD700 35%,
+        #FFF5B7 50%,
+        #FFD700 65%,
+        #C58A00 85%,
+        #7A4A00 100%
+    );
+
+    background-size:300% auto;
+
+    background-clip:text;
+    -webkit-background-clip:text;
+
+    color:transparent;
+    -webkit-text-fill-color:transparent;
+
+    animation:goldMove 4s linear infinite;
+
+    filter:drop-shadow(0 0 10px rgba(255,215,0,.35));
+}
+
+@keyframes goldMove{
+
+    0%{
+        background-position:0% center;
+    }
+
+    100%{
+        background-position:300% center;
+    }
+
+}
+h1:hover{
+
+    filter:
+        drop-shadow(0 0 10px rgba(255,215,0,.6))
+        drop-shadow(0 0 25px rgba(255,215,0,.5))
+        drop-shadow(0 0 45px rgba(255,215,0,.3));
+
+    transition:.4s;
+
+}
+
+.progress-fill{
+
+    position:relative;
+
+    cursor:pointer;
+
+}
+
+.progress-tooltip{
+
+    position:absolute;
+
+    right:0;
+
+    top:-115px;
+
+    width:220px;
+
+    padding:14px;
+
+    border-radius:14px;
+
+    background:#111827;
+
+    color:white;
+
+    border:1px solid rgba(255,215,0,.45);
+
+    box-shadow:0 10px 25px rgba(0,0,0,.45);
+
+    display:none;
+
+    z-index:999;
+
+    font-size:14px;
+
+    line-height:1.7;
+
+}
+
+/* Hover karne par show hoga */
+.progress-fill:hover .progress-tooltip{
+
+    display:block;
+
+}
