@@ -1280,7 +1280,7 @@ body{{
 
 <div class="progress-track">
 
-    <div class="progress-fill" style="width:{min(collection_percentage,100):.2f}%">
+    # <div class="progress-fill" style="width:{min(collection_percentage,100):.2f}%">
 
         <div class="progress-tooltip">
 
