@@ -732,7 +732,7 @@ color: transparent;
 }
 
 /* Hide Streamlit Header */
-header[data-testid="stHeader"]{
+/* header[data-testid="stHeader"]{
     display:none !important;
 }
 
@@ -744,7 +744,7 @@ header[data-testid="stHeader"]{
 /* Full width app */
 .stApp{
     margin-top:0 !important;
-}
+} */
 
 
 
