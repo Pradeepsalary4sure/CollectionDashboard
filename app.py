@@ -1284,13 +1284,13 @@ body{{
 
         <div class="progress-tooltip">
 
-            # <b>{collection_percentage:.2f}% Collection</b><br><br>
+             <b>{collection_percentage:.2f}% Collection</b><br><br>
 
-            💰 Collected : ₹{collected_cr:.2f} Cr<br>
+            # 💰 Collected : ₹{collected_cr:.2f} Cr<br>
 
-            🎯 Target : ₹{target_cr:.2f} Cr<br>
+            # 🎯 Target : ₹{target_cr:.2f} Cr<br>
 
-            📉 Remaining : ₹{remaining_cr:.2f} Cr
+            # 📉 Remaining : ₹{remaining_cr:.2f} Cr
 
         </div>
 
