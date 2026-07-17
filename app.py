@@ -1,3 +1,4 @@
+
 # import streamlit as st
 # import pandas as pd
 # from datetime import datetime
@@ -277,7 +278,10 @@
 # # 👇 Collection Progress Bar yahan add karo
 # import streamlit.components.v1 as components
 
-
+# # ⭐ FIXED: Calculate Crore values correctly
+# collected_cr = received_amount / 10000000
+# remaining_cr = pending_amount / 10000000
+# target_cr = repay_amount / 10000000
 
 # components.html(
 #     f"""
@@ -311,12 +315,6 @@
 # }}
 
 # .progress-title{{
-
-#     display:flex;
-
-#     justify-content:space-between;
-
-#     align-items:center;
 
 #     color:white;
 
@@ -412,25 +410,22 @@
 # <div class="collection-progress-card">
 
 # <div class="progress-title">
-
-# <span>📈 Collection Performance</span>
-
-# <span>{collection_percentage:.2f}%</span>
-
+# 📈 Collection Performance
 # </div>
+
 # <div class="progress-track">
 
 #     <div class="progress-fill" style="width:{min(collection_percentage,100):.2f}%">
 
 #         <div class="progress-tooltip">
 
-#             <b>{collection_percentage:.2f}% Collection</b><br><br>
+#              <b>{collection_percentage:.2f}% Collection</b><br><br>
 
-#             💰 Collected : ₹{received_amount / 10000000:.2f} Cr<br>
+#             💰 Collected : ₹{collected_cr:.2f} Cr<br>
 
-#             🎯 Target : ₹{received_amount / 10000000:.2f} Cr<br>
+#             🎯 Target : ₹{target_cr:.2f} Cr<br>
 
-#             📉 Remaining : ₹{received_amount / 10000000:.2f} Cr
+#             📉 Remaining : ₹{remaining_cr:.2f} Cr
 
 #         </div>
 
@@ -444,7 +439,7 @@
 
 # <small>Collected</small><br>
 
-# <b>₹{received_amount / 10000000:.2f} Cr</b>
+# <b>₹0 cr</b>
 
 # </div>
 
@@ -452,7 +447,7 @@
 
 # <small>Remaining</small><br>
 
-# <b>₹{received_amount / 10000000:.2f} Cr</b>
+# <b>₹0 to ₹{remaining_cr:.2f} Cr</b>
 
 # </div>
 
@@ -460,7 +455,7 @@
 
 # <small>Target</small><br>
 
-# <b>₹{received_amount / 10000000:.2f} Cr</b>
+# <b>₹0 to ₹{target_cr:.2f} Cr</b>
 
 # </div>
 
@@ -862,13 +857,12 @@
 # # )
 
 
-
-
 import streamlit as st
 import pandas as pd
 from datetime import datetime
 from utils import load_data, filter_dataframe
 import streamlit.components.v1 as components
+
 
 from charts import (
     executive_chart,
@@ -954,15 +948,21 @@ selected_status = st.sidebar.selectbox(
     "Current Status",
     status_list
 )
+from datetime import datetime, date
+
+today = date.today()
+
+# Current month ki first date
+first_day = today.replace(day=1)
 
 from_date = st.sidebar.date_input(
     "From Date",
-    value=df["Repay Date"].min()
+    value=first_day
 )
 
 to_date = st.sidebar.date_input(
     "To Date",
-    value=df["Repay Date"].max()
+    value=today
 )
 
 filtered = filter_dataframe(
@@ -1143,10 +1143,7 @@ st.divider()
 # 👇 Collection Progress Bar yahan add karo
 import streamlit.components.v1 as components
 
-# ⭐ FIXED: Calculate Crore values correctly
-collected_cr = received_amount / 10000000
-remaining_cr = pending_amount / 10000000
-target_cr = repay_amount / 10000000
+
 
 components.html(
     f"""
@@ -1180,6 +1177,12 @@ body{{
 }}
 
 .progress-title{{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
 
     color:white;
 
@@ -1275,22 +1278,25 @@ body{{
 <div class="collection-progress-card">
 
 <div class="progress-title">
-📈 Collection Performance
-</div>
 
+<span>📈 Current Month Performance</span>
+
+<span>{collection_percentage:.2f}%</span>
+
+</div>
 <div class="progress-track">
 
     <div class="progress-fill" style="width:{min(collection_percentage,100):.2f}%">
 
         <div class="progress-tooltip">
 
-             <b>{collection_percentage:.2f}% Collection</b><br><br>
+            <b>{collection_percentage:.2f}% Collection</b><br><br>
 
-            💰 Collected : ₹{collected_cr:.2f} Cr<br>
+            💰 Collected : ₹{received_amount / 10000000:.2f} Cr<br>
 
-            🎯 Target : ₹{target_cr:.2f} Cr<br>
+            🎯 Target : ₹{received_amount / 10000000:.2f} Cr<br>
 
-            📉 Remaining : ₹{remaining_cr:.2f} Cr
+            📉 Remaining : ₹{received_amount / 10000000:.2f} Cr
 
         </div>
 
@@ -1304,7 +1310,7 @@ body{{
 
 <small>Collected</small><br>
 
-<b>₹0 cr</b>
+<b>₹{received_amount / 10000000:.2f} Cr</b>
 
 </div>
 
@@ -1312,7 +1318,7 @@ body{{
 
 <small>Remaining</small><br>
 
-<b>₹0 to ₹{remaining_cr:.2f} Cr</b>
+<b>₹{received_amount / 10000000:.2f} Cr</b>
 
 </div>
 
@@ -1320,7 +1326,7 @@ body{{
 
 <small>Target</small><br>
 
-<b>₹0 to ₹{target_cr:.2f} Cr</b>
+<b>₹{received_amount / 10000000:.2f} Cr</b>
 
 </div>
 
@@ -1717,6 +1723,7 @@ st.divider()
 #         <p>Live Google Sheet • Streamlit • Plotly • Pandas</p>
 #         <p>Developed for Collection Team</p>
 #     </div>
-#     """,
+#     """,  
 #     unsafe_allow_html=True
 # )
+
