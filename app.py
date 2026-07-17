@@ -1280,11 +1280,11 @@ body{{
 
 <div class="progress-track">
 
-    # <div class="progress-fill" style="width:{min(collection_percentage,100):.2f}%">
+    <div class="progress-fill" style="width:{min(collection_percentage,100):.2f}%">
 
         <div class="progress-tooltip">
 
-            <b>{collection_percentage:.2f}% Collection</b><br><br>
+            # <b>{collection_percentage:.2f}% Collection</b><br><br>
 
             💰 Collected : ₹{collected_cr:.2f} Cr<br>
 
