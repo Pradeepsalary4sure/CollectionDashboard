@@ -1286,11 +1286,11 @@ body{{
 
              <b>{collection_percentage:.2f}% Collection</b><br><br>
 
-            # 💰 Collected : ₹{collected_cr:.2f} Cr<br>
+            💰 Collected : ₹{collected_cr:.2f} Cr<br>
 
-            # 🎯 Target : ₹{target_cr:.2f} Cr<br>
+            🎯 Target : ₹{target_cr:.2f} Cr<br>
 
-            # 📉 Remaining : ₹{remaining_cr:.2f} Cr
+            📉 Remaining : ₹{remaining_cr:.2f} Cr
 
         </div>
 
@@ -1304,7 +1304,7 @@ body{{
 
 <small>Collected</small><br>
 
-<b>₹0 to ₹{collected_cr:.2f} Cr</b>
+<b>₹0 cr</b>
 
 </div>
 
@@ -1312,7 +1312,7 @@ body{{
 
 <small>Remaining</small><br>
 
-<b>₹0 to ₹{remaining_cr:.2f} Cr</b>
+# <b>₹0 to ₹{remaining_cr:.2f} Cr</b>
 
 </div>
 
