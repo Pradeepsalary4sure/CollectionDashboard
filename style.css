@@ -731,10 +731,10 @@ color: transparent;
 
 }
 
-/* Hide Streamlit Header */
+/* ⭐ FIXED: Keep header visible so hamburger menu works ⭐ */
 /* header[data-testid="stHeader"]{
     display:none !important;
-}
+} */
 
 /* Remove top space */
 .block-container{
@@ -744,8 +744,7 @@ color: transparent;
 /* Full width app */
 .stApp{
     margin-top:0 !important;
-} */
-
+}
 
 
 
@@ -1679,21 +1678,3 @@ h1:hover{
     display:block;
 
 }
-
-
-/* Hide Streamlit Header */
-header[data-testid="stHeader"]{
-    display:none !important;
-}
-
-/* Remove top space */
-.block-container{
-    padding-top:0rem !important;
-}
-
-/* Full width app */
-.stApp{
-    margin-top:0 !important;
-}
-
-
