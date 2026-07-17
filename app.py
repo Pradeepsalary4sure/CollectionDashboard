@@ -864,7 +864,6 @@
 
 
 
-
 import streamlit as st
 import pandas as pd
 from datetime import datetime
@@ -1182,12 +1181,6 @@ body{{
 
 .progress-title{{
 
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
     color:white;
 
     font-size:22px;
@@ -1282,11 +1275,7 @@ body{{
 <div class="collection-progress-card">
 
 <div class="progress-title">
-
-<span>📈 Collection Performance</span>
-
-<span>{collection_percentage:.2f}%</span>
-
+📈 Collection Performance
 </div>
 
 <div class="progress-track">
