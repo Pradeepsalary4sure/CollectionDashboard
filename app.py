@@ -1312,7 +1312,7 @@ body{{
 
 <small>Remaining</small><br>
 
-# <b>₹0 to ₹{remaining_cr:.2f} Cr</b>
+<b>₹0 to ₹{remaining_cr:.2f} Cr</b>
 
 </div>
 
